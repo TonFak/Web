@@ -373,3 +373,58 @@ for ($i = 1; $i < 21; $i++)
     echo str_repeat('x', $i);
     echo "<br />";
 }
+echo "<hr />";
+$arr = array();
+$number = rand(1, 5);
+for ($i = 0; $i < $number; $i++) 
+{
+    $arr[] = rand(1, 100);
+}
+foreach ($arr as $item) 
+{
+    echo $item . ' ';
+}
+echo "<br />";
+$mean = array_sum($arr) / count($arr);
+echo $mean;
+echo "<br />";
+function from1to100($x = 100)
+{
+    if ($x == 1) 
+    {
+        return 1;
+    }
+    else 
+    {
+        return ($x + from1to100($x - 1));
+    }
+}
+echo from1to100();
+echo "<br />";
+$arr = [];
+$number = rand(1, 5);
+for ($i = 0; $i < $number; $i++) 
+{
+    $arr[] = rand(1, 100);
+}
+foreach ($arr as $item) 
+{
+    echo $item . ' ';
+}
+echo "<br />";
+$sqrtArr = array_map('sqrt', $arr);
+foreach ($sqrtArr as $item) 
+{
+    echo $item . ' ';
+}
+echo "<br />";
+$firstArr = range('a', 'z');
+$secondArr = range(1, 26);
+$combinedAssociativeArray = array_combine($firstArr, $secondArr);
+foreach ($combinedAssociativeArray as $key => $value) 
+{
+    echo "Key: $key; Value: $value <br />";
+}
+$str = "1234567890";
+echo array_sum(str_split($str, 2));
+echo "<hr />";
