@@ -286,13 +286,7 @@ echo $arr[$count - 2];
 echo "<hr />";
 function moreThanTen($a, $b)
 {
-    if (($a + $b) > 10) 
-    {
-        return true;
-    } else 
-    {
-        return false;
-    }
+    return (($a + $b) > 10);
 }
 if (moreThanTen(4, 5)) 
 {
@@ -305,13 +299,7 @@ else
 echo "<br />";
 function ravno($a, $b)
 {
-    if ($a == $b) 
-    {
-        return true;
-    } else 
-    {
-        return false;
-    }
+    return ($a === $b);
 }
 if (ravno(8, 9)) 
 {
@@ -355,7 +343,7 @@ $i = 0;
 $sum = 0;
 foreach ($arr as $item) 
 {
-    $i += 1;
+    $i++;
     if ($i == 4) 
     {
         break;
