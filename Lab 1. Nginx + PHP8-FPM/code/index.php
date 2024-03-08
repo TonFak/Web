@@ -114,7 +114,7 @@ for ($i = 0; $i < count($array); $i++) {
         break;
     }
 }
-echo "<br \>";
+echo "<hr \>";
 function printStringReturnNumber()
 {
     echo "Ключи от двери.";
@@ -123,3 +123,58 @@ function printStringReturnNumber()
 $my_num = printStringReturnNumber();
 echo "<br \>";
 echo $my_num;
+echo "<hr \>";
+function increaseEnthusiasm($string)
+{
+    return $string . "!";
+}
+echo increaseEnthusiasm("Лето когда? Уже");
+echo "<br \>";
+function repeatThreeTimes($string)
+{
+    return str_repeat($string, 3);
+}
+echo repeatThreeTimes("Матча-чай-латте ");
+echo "<br \>";
+function cut($string, $int=10)
+{
+    if (strlen($string) <= $int) {
+        return $string;
+    } else {
+        $newString = '';
+        for ($i = 0; $i < $int; $i++) {
+            $newString .= $string[$i];
+        }
+        return $newString;
+    }
+}
+echo cut("Today we are going to talk about AMERICANO", 10);
+echo "<br \>";
+function printArray($array)
+{   
+    if (count($array) == 0){
+        return;
+    }
+    echo $array[0] . " ";
+    printArray(array_slice($array, 1));
+}
+$array = [1,2,3,4,5];
+printArray($array);
+echo "<br \>";
+function digitsCounter($number)
+{
+    if ($number < 0) {
+        $number = abs($number);
+    }
+    if ($number < 10) {
+        return $number;
+    }
+    $stringNumber = $number . '';
+    $sum = intval($stringNumber[0]);
+    for ($i = 1; $i < strlen($stringNumber); $i++) {
+        $sum += intval($stringNumber[$i]);
+    }
+    return digitsCounter($sum);
+}
+echo digitsCounter(12345);
+echo "<hr \>";
