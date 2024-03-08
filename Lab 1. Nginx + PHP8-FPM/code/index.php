@@ -284,3 +284,86 @@ echo $arr[$count - 1];
 echo "<br />";
 echo $arr[$count - 2];
 echo "<hr />";
+function moreThanTen($a, $b)
+{
+    if (($a + $b) > 10) 
+    {
+        return true;
+    } else 
+    {
+        return false;
+    }
+}
+if (moreThanTen(4, 5)) 
+{
+    echo 'true';
+} 
+else 
+{
+    echo 'false';
+}
+echo "<br />";
+function ravno($a, $b)
+{
+    if ($a == $b) 
+    {
+        return true;
+    } else 
+    {
+        return false;
+    }
+}
+if (ravno(8, 9)) 
+{
+    echo 'true';
+} 
+else
+{
+    echo 'false';
+}
+echo "<br />";
+$test = 0;
+echo(($test == 0) ? 'верно' : '');
+echo "<br />";
+$age = rand(1, 500);
+if (($age < 10) or ($age > 99)) 
+{
+    echo "Число $age больше 99 или меньше 10";
+}
+else
+{
+    $sum = 0;
+    $temp = str_split(strval($age));
+    foreach ($temp as $value)
+    {
+        $sum += intval($value);
+    }
+    echo $sum > 9 ? "Двузначна" : "Однозначна";
+}
+echo "<br />";
+$arr = [];
+$number = rand(1, 5);
+for ($i = 0; $i < $number; $i++) 
+{
+    $arr[] = rand(1, 100);
+}
+foreach ($arr as $item)
+{
+    echo $item . ' ';
+}
+$i = 0;
+$sum = 0;
+foreach ($arr as $item) 
+{
+    $i += 1;
+    if ($i == 4) 
+    {
+        break;
+    }
+    $sum += $item;
+}
+echo "<br />";
+if ($i == 3) 
+{
+    echo $sum;
+}
