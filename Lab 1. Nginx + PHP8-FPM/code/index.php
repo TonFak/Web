@@ -1,14 +1,9 @@
 <?php
 /* Imagine a lot of code here */ 
  $very_brad_unclear_name = "15 chicken wings";
-
-
 // Write your code here:
-
 $order =& $very_brad_unclear_name;
-$order = $order . " and Japanese Tree ";
-
-  
+$order = $order . " and Japanese Tree "; 
  // Don't change the line brelow
  echo "\nYour order is: $very_brad_unclear_name.";
  echo "<br />";
@@ -44,9 +39,12 @@ $a = 10;
 $br = 3;
 echo "$a % $br = " . $a % $br;
 echo "<br />";
-if ($a % $br == 0) {
+if ($a % $br == 0) 
+{
     echo "Делится, " . $a / $br;
-} else {
+} 
+else 
+{
     echo "Делится с остатком, остаток от деления будет равен " . $a % $br;
 }
 $st = pow(2, 10);
@@ -54,7 +52,8 @@ echo "<br />";
 echo sqrt(245);
 $summa = 0;
 $array = [4, 2, 5, 19, 13, 0, 10];
-foreach ($array as $value) {
+foreach ($array as $value) 
+{
     $summa += pow($value, 2);
 }
 echo "<br />";
@@ -71,45 +70,53 @@ echo $array["floor"] . " меньше чем " . $array["ceil"];
 echo "<br />";
 $array = [4, -2, 5, 19, -130, 0, 10];
 echo min($array);
-echo "<br \>";
+echo "<br />";
 echo max($array);
-echo "<br \>";
+echo "<br />";
 echo rand(1, 100);
-echo "<br \>";
+echo "<br />";
 $array = array();
-for ($i = 0; $i < 10; $i++) {
+for ($i = 0; $i < 10; $i++) 
+{
     $array[] = rand();
 }
-foreach ($array as &$value) {
+foreach ($array as &$value) 
+{
    echo $value . " ";
 }
-echo "<br \>";
+echo "<br />";
 $a = rand(-100, 100);
 $b = rand(-100, 100);
 echo "|$a - $b| = " . abs($a - $b);
-echo "<br \>";
+echo "<br />";
 $array = [1, 2, -1, -2, 3, -3];
 $newArray = array_map('abs', $array);
-foreach ($newArray as &$value) {
+foreach ($newArray as &$value) 
+{
    echo $value . " ";
 }
-echo "<br \>";
+echo "<br />";
 $number = 30;
 $array = [];
-for ($i = 1; $i <= 30; $i++) {
-    if (($number % $i) == 0) {
+for ($i = 1; $i <= 30; $i++) 
+{
+    if (($number % $i) == 0) 
+    {
         $array[] = $i;
     }
 }
-foreach ($array as &$value) {
+foreach ($array as &$value) 
+{
     echo $value . " ";
- }
-echo "<br \>";
+}
+echo "<br />";
 $array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 $summa = 0;
-for ($i = 0; $i < count($array); $i++) {
+for ($i = 0; $i < count($array); $i++) 
+{
     $summa += $array[$i];
-    if ($summa > 10) {
+    if ($summa > 10) 
+    {
         echo $i+1;
         break;
     }
@@ -121,7 +128,7 @@ function printStringReturnNumber()
     return 7;
 }
 $my_num = printStringReturnNumber();
-echo "<br \>";
+echo "<br />";
 echo $my_num;
 echo "<hr \>";
 function increaseEnthusiasm($string)
@@ -129,30 +136,35 @@ function increaseEnthusiasm($string)
     return $string . "!";
 }
 echo increaseEnthusiasm("Лето когда? Уже");
-echo "<br \>";
+echo "<br />";
 function repeatThreeTimes($string)
 {
     return str_repeat($string, 3);
 }
 echo repeatThreeTimes("Матча-чай-латте ");
-echo "<br \>";
+echo "<br />";
 function cut($string, $int=10)
 {
-    if (strlen($string) <= $int) {
+    if (strlen($string) <= $int) 
+    {
         return $string;
-    } else {
+    } 
+    else 
+    {
         $newString = '';
-        for ($i = 0; $i < $int; $i++) {
+        for ($i = 0; $i < $int; $i++) 
+        {
             $newString .= $string[$i];
         }
         return $newString;
     }
 }
 echo cut("Today we are going to talk about AMERICANO", 10);
-echo "<br \>";
+echo "<br />";
 function printArray($array)
 {   
-    if (count($array) == 0){
+    if (count($array) == 0)
+    {
         return;
     }
     echo $array[0] . " ";
@@ -160,21 +172,115 @@ function printArray($array)
 }
 $array = [1,2,3,4,5];
 printArray($array);
-echo "<br \>";
+echo "<br />";
 function digitsCounter($number)
 {
-    if ($number < 0) {
+    if ($number < 0) 
+    {
         $number = abs($number);
     }
-    if ($number < 10) {
+    if ($number < 10) 
+    {
         return $number;
     }
     $stringNumber = $number . '';
     $sum = intval($stringNumber[0]);
-    for ($i = 1; $i < strlen($stringNumber); $i++) {
+    for ($i = 1; $i < strlen($stringNumber); $i++) 
+    {
         $sum += intval($stringNumber[$i]);
     }
     return digitsCounter($sum);
 }
 echo digitsCounter(12345);
 echo "<hr \>";
+function fillArrayX(&$array, $number)
+{
+    for ($i = 1; $i <= $number; $i++) 
+    {
+        $array[] = str_repeat('x', $i);
+    }
+}
+$array = [];
+fillArrayX($array,5);
+foreach ($array as &$value) 
+{
+    echo $value . " ";
+}
+echo "<br />";
+function arrayFill($value, $count)
+{
+    $array = array();
+    for ($i = 0; $i < $count; $i++) 
+    {
+        $array[] = $value;
+    }
+    return $array;
+}
+$array = arrayFill('U', 5);
+foreach ($array as $item) 
+{
+    echo $item . ' ';
+}
+echo "<br />";
+$array = [
+    [1,2,3],
+    [4,5],
+    [6]
+];
+$sum = 0;
+foreach($array as $item)
+{
+    foreach ($item as $value)
+    {
+        $sum += $value;
+    }
+}
+echo $sum;
+echo "<br />";
+$counter = 1;
+$array = [];
+for ($i = 0; $i < 3; $i++) 
+{
+    $array[] = array();
+    for ($j = &$counter; $j < 10; $j++) 
+    {
+        $array[$i][] = $j;
+    }
+}
+foreach ($array as $item) 
+{
+    foreach ($item as $value) 
+    {
+        echo $value . ' ';
+    }
+}
+echo "<br />";
+$array = [2, 5, 3, 9];
+$firstNumber = $array[0] * $array[1];
+$secondNumber = $array[2] * $array[3];
+$result = $firstNumber + $secondNumber;
+echo $result;
+$user = array('name' => 'Artyom', 'surname' => 'Vasilev', 'patronymic' => 'Olegovich');
+echo "<br />";
+echo $user['surname'] . ' ' . $user['name'] . ' ' . $user['patronymic'];
+echo "<br />";
+$date = array('year' => 2024, 'month' => 3, 'day' => 8);
+$res = '';
+foreach ($date as $value) 
+{
+    $res .= $value . '-';
+}
+echo rtrim($res, '-');
+echo "<br />";
+$arr = ['a', 'b', 'c', 'd', 'e'];
+$count = 0;
+foreach ($arr as $item) 
+{
+    $count++;
+}
+echo "Количество символов в массиве - ". $count;
+echo "<br />";
+echo $arr[$count - 1];
+echo "<br />";
+echo $arr[$count - 2];
+echo "<hr />";
