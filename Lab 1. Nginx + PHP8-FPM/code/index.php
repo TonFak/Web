@@ -114,3 +114,12 @@ for ($i = 0; $i < count($array); $i++) {
         break;
     }
 }
+echo "<br \>";
+function printStringReturnNumber()
+{
+    echo "Ключи от двери.";
+    return 7;
+}
+$my_num = printStringReturnNumber();
+echo "<br \>";
+echo $my_num;
