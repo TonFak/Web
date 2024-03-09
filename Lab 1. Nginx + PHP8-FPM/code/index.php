@@ -39,7 +39,7 @@ $a = 10;
 $br = 3;
 echo "$a % $br = " . $a % $br;
 echo "<br />";
-if ($a % $br == 0) 
+if (0 == $a % $br) 
 {
     echo "Делится, " . $a / $br;
 } 
@@ -100,7 +100,7 @@ $number = 30;
 $array = [];
 for ($i = 1; $i <= 30; $i++) 
 {
-    if (($number % $i) == 0) 
+    if (0 == ($number % $i)) 
     {
         $array[] = $i;
     }
@@ -163,7 +163,7 @@ echo cut("Today we are going to talk about AMERICANO", 10);
 echo "<br />";
 function printArray($array)
 {   
-    if (count($array) == 0)
+    if (0 == count($array))
     {
         return;
     }
@@ -311,7 +311,7 @@ else
 }
 echo "<br />";
 $test = 0;
-echo(($test == 0) ? 'верно' : '');
+echo((0 == $test) ? 'верно' : '');
 echo "<br />";
 $age = rand(1, 500);
 if (($age < 10) or ($age > 99)) 
@@ -344,14 +344,14 @@ $sum = 0;
 foreach ($arr as $item) 
 {
     $i++;
-    if ($i == 4) 
+    if (4 == $i) 
     {
         break;
     }
     $sum += $item;
 }
 echo "<br />";
-if ($i == 3) 
+if (3 == $i) 
 {
     echo $sum;
 }
@@ -378,7 +378,7 @@ echo $mean;
 echo "<br />";
 function from1to100($x = 100)
 {
-    if ($x == 1) 
+    if (1 == $x) 
     {
         return 1;
     }
