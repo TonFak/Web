@@ -12,7 +12,8 @@ echo "<br />";
 echo "b) ";
 $str = 'a1b2c3';
 $pattern = '/\d/';
-$result = preg_replace_callback($pattern, function($matches) {
+$result = preg_replace_callback($pattern, function($matches)
+{
     $number = $matches[0];
     return pow($number, 3);
 }, $str);
