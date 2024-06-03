@@ -1,41 +1,19 @@
 <?php
-require 'vendor/autoload.php';
-error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
+$mysqli = new mysqli("db", "root", "helloworld", "web");
 
-
-$client = new \Google_Client();
-$client->setApplicationName('BOARD');
-$client->setScopes(['https://www.googleapis.com/auth/spreadsheets']);
-$client->setAccessType('offline');
-$path = 'credentials.json';
-$client->setAuthConfig($path);
-
-$service = new \Google_Service_Sheets($client);
-
-$spreadsheetId = '1Q0r9TF0mE50Lzdpvbg4Mb5_GlXY6WLwSZNwpef4_TdY';
-
-if ('POST' === $_SERVER['REQUEST_METHOD'])
-{
-    $email = $_POST['email'] ?? '';
-    $title = $_POST['title'] ?? '';
-    $category = $_POST['categories'] ?? '';
-    $description = $_POST['text'] ?? '';
-
-    $values = [
-        [$email, $title, $category, $description]
-    ];
+if ($mysqli->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
 }
 
-$range = 'Лист1';
+if ('POST' === $_SERVER['REQUEST_METHOD']) {
+    $email = $mysqli->real_escape_string($_POST['email']);
+    $title = $mysqli->real_escape_string($_POST['title']);
+    $category = $mysqli->real_escape_string($_POST['categories']);;
+    $description = $mysqli->real_escape_string($_POST['text']);
 
-$body = new Google_Service_Sheets_ValueRange([
-    'values' => $values
-]);
-$params = [
-    'valueInputOption' => 'RAW'
-];
-
-$result = $service->spreadsheets_values->append($spreadsheetId, $range, $body, $params);
+    $query = "INSERT INTO ad (email,title,category,description) VALUES ('$email','$title','$category','$description')";
+    $mysqli->query($query);
+}
 
 header('Location: index.php');
 exit();
