@@ -1,4 +1,2 @@
-FROM ubuntu:latest
-LABEL authors="Lenovo"
-
-ENTRYPOINT ["top", "-b"]
+FROM php:8-fpm
+RUN docker-php-ext-install mysqli
